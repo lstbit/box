@@ -1,0 +1,9 @@
+format = '$time$all$character'
+
+[character]
+success_symbol = '[\[^_^\]](bold green):'
+error_symbol = '[\[x_x\]](bold red):'
+
+[time]
+disabled = false
+format = '[\($time\)]($style) '
