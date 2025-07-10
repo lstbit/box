@@ -1,5 +1,5 @@
 self: super:
 
 {
-  linkr = super.callPackage ../linkr/default.nix {};
+  linkr = super.callPackage ./pkgs/linkr.nix {};
 }
