@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+export EDITOR=vim
+
+alias rlsh="source $HOME/.bashrc"
+
+# AWS bits
+sap() {
+    local aws_prof=$(grep profile ~/.aws/config | cut -d ' ' -f 2 | cut -d ']' -f 1 | fzf)
+    if [[ -n "$aws_prof" ]]; then
+	export AWS_PROFILE=$aws_prof
+    fi
+}
+
+alias sapu="unset AWS_PROFILE"

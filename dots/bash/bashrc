@@ -1,0 +1,14 @@
+# .bashrc @bit
+
+# Main config located in bash_config_dir
+BASH_CONFIG_DIR=$HOME/.config/bash
+
+# Load files from bash config directory if configured
+if [[ -e $BASH_CONFIG_DIR ]]; then
+    for file in "$BASH_CONFIG_DIR/*"; do
+	source $file
+    done
+fi
+
+# enable starship
+eval "$(starship init bash)"
