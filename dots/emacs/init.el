@@ -137,7 +137,9 @@
   ;; Compile mode config
   (with-eval-after-load 'compile
     (setq compilation-scroll-output t))
-  )
+
+  ;; Configure project root markers for box repo
+  (setq project-vc-extra-root-markers '(".project")))
 
 ;; used for fixing path when loading under mac os
 (use-package exec-path-from-shell
@@ -196,57 +198,57 @@ If prefix arg is set, it will unset the env var."
     :global-prefix "C-SPC")
 
   (bit-leader
-   "SPC" '("M-x" . execute-extended-command)
-   "u"   '("C-u" . universal-argument)
-   "'"   '("Open Terminal Here" . vterm)
+    "SPC" '("M-x" . execute-extended-command)
+    "u"   '("C-u" . universal-argument)
+    "'"   '("Open Terminal Here" . vterm)
 
-   ;; Window Management
-   "w"   '(:ignore t :which-key "window")
-   "w h" 'evil-window-left
-   "w j" 'evil-window-down
-   "w k" 'evil-window-up
-   "w l" 'evil-window-right
-   "w s" 'split-window-vertically
-   "w v" 'split-window-horizontally
-   "w d" 'delete-window
-   "w D" 'delete-other-windows
+    ;; Window Management
+    "w"   '(:ignore t :which-key "window")
+    "w h" 'evil-window-left
+    "w j" 'evil-window-down
+    "w k" 'evil-window-up
+    "w l" 'evil-window-right
+    "w s" 'split-window-vertically
+    "w v" 'split-window-horizontally
+    "w d" 'delete-window
+    "w D" 'delete-other-windows
 
-   ;; Buffer Management
-   "b"   '(:ignore t :which-key "buffer")
-   "b k" 'kill-current-buffer
-   "b K" 'kill-buffer
-   "b b" 'switch-to-buffer
-   "b B" 'switch-to-buffer-other-window
-   "b f" 'apheleia-format-buffer
+    ;; Buffer Management
+    "b"   '(:ignore t :which-key "buffer")
+    "b k" 'kill-current-buffer
+    "b K" 'kill-buffer
+    "b b" 'switch-to-buffer
+    "b B" 'switch-to-buffer-other-window
+    "b f" 'apheleia-format-buffer
 
-   ;; File Management
-   "f"   '(:ignore t :which-key "file")
-   "f f" 'find-file
-   "f F" 'find-file-other-window
+    ;; File Management
+    "f"   '(:ignore t :which-key "file")
+    "f f" 'find-file
+    "f F" 'find-file-other-window
 
-   ;; Env Managment
-   "e" '(:ignore t :which-key "env")
-   "e a" '(:ignore t :which-key "aws")
-   "e a g" 'bit/get-active-aws-profile
-   "e a s" 'bit/set-aws-profile
+    ;; Env Managment
+    "e" '(:ignore t :which-key "env")
+    "e a" '(:ignore t :which-key "aws")
+    "e a g" 'bit/get-active-aws-profile
+    "e a s" 'bit/set-aws-profile
 
-   ;; Run Command
-   "r"   '(:ignore t :which-key "run")
-   "r c" 'shell-command
-   "r a" 'async-shell-command
-   "r r" 'shell-command-on-region
+    ;; Run Command
+    "r"   '(:ignore t :which-key "run")
+    "r c" 'shell-command
+    "r a" 'async-shell-command
+    "r r" 'shell-command-on-region
 
-   ;; Code Commands
-   "c" '(:ignore t :which-key "code")
-   "c c" 'compile
-   "c r" 'recompile
+    ;; Code Commands
+    "c" '(:ignore t :which-key "code")
+    "c c" 'compile
+    "c r" 'recompile
 
-   ;; Help
-   "h"   '(:ignote t :which-key "help")
-   "h a" 'apropos-command
-   "h f" 'describe-function
-   "h k" 'describe-key
-   "h v" 'describe-variable))
+    ;; Help
+    "h"   '(:ignote t :which-key "help")
+    "h a" 'apropos-command
+    "h f" 'describe-function
+    "h k" 'describe-key
+    "h v" 'describe-variable))
 
 
 
@@ -259,8 +261,8 @@ If prefix arg is set, it will unset the env var."
 (use-package magit
   :init
   (bit-leader
-   "g" '(:ignore t :which-key "git")
-   "g g" '("Magit Status" . magit-status-here)))
+    "g" '(:ignore t :which-key "git")
+    "g g" '("Magit Status" . magit-status-here)))
 
 
 ;; PROG MODE CONFIGURATION
@@ -333,14 +335,14 @@ If prefix arg is set, it will unset the env var."
     (compile "terraform plan -no-color"))
 
   (bit-leader
-   :keymaps 'terraform-mode-map
-   "c v" 'bit/terraform-validate
-   "c i" 'bit/terraform-init
-   "c c" 'bit/terraform-plan
-   "c d" '(:ignore t :which-key "doc")
-   "c d o" 'terraform-open-doc
-   "c d y" 'terraform-kill-doc-url
-   "c d r" 'terraform-insert-doc-in-comment))
+    :keymaps 'terraform-mode-map
+    "c v" 'bit/terraform-validate
+    "c i" 'bit/terraform-init
+    "c c" 'bit/terraform-plan
+    "c d" '(:ignore t :which-key "doc")
+    "c d o" 'terraform-open-doc
+    "c d y" 'terraform-kill-doc-url
+    "c d r" 'terraform-insert-doc-in-comment))
 
 
 
