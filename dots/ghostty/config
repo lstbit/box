@@ -1,0 +1,6 @@
+font-family = "Iosevka Neon Mono"
+font-feature = "-calt, -liga, -dlig"
+font-size = 10.5
+theme = "Builtin Solarized Dark"
+
+window-decoration = "none"
