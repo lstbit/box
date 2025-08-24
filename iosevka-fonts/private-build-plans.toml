@@ -1,0 +1,125 @@
+[buildPlans.iosevka-neon]
+family = "Iosevka Neon"
+spacing = "quasi-proportional"
+serifs = "sans"
+noCvSs = true
+exportGlyphNames = false
+
+[buildPlans.iosevka-neon.variants.design]
+capital-g = "toothless-rounded-serifless-hooked"
+capital-i = "serifless"
+capital-j = "serifed"
+capital-k = "curly-serifless"
+capital-q = "crossing-baseline"
+capital-w = "straight-flat-top-serifless"
+capital-z = "straight-serifless"
+a = "double-storey-serifless"
+d = "toothless-corner-serifless"
+e = "flat-crossbar"
+f = "flat-hook-serifless-crossbar-at-x-height"
+i = "serifed"
+j = "serifed"
+k = "symmetric-touching-serifless"
+l = "serifed"
+r = "hookless-serifless"
+t = "flat-hook"
+w = "straight-flat-top-serifless"
+zero = "slashed"
+five = "upright-arched"
+three = "flat-top-serifless"
+eight = "two-circles"
+diacritic-dot = "round"
+punctuation-dot = "round"
+asterisk = "hex-low"
+underscore = "high"
+caret = "low"
+paren = "flat-arc"
+brace = "straight"
+number-sign = "slanted"
+ampersand = "upper-open"
+at = "fourfold-solid-inner-tall"
+dollar = "interrupted"
+percent = "dots"
+question = "smooth"
+lig-neq = "more-slanted"
+
+[buildPlans.iosevka-neon.variants.italic]
+i = "serifed"
+l = "serifed"
+
+[buildPlans.iosevka-neon.widths.Normal]
+shape = 600
+menu = 5
+css = "normal"
+
+[buildPlans.iosevka-neon-mono]
+family = "Iosevka Neon Mono"
+spacing = "fixed"
+serifs = "sans"
+noCvSs= true
+export-glyph-names = false
+
+[buildPlans.iosevka-neon-mono.variants.design]
+one = "base"
+two = "straight-neck-serifless"
+three = "flat-top-serifless"
+four = "semi-open-serifless"
+seven = "straight-serifless"
+eight = "crossing"
+nine = "straight-bar"
+zero = "tall-slashed"
+capital-b = "standard-serifless"
+capital-i = "serifed"
+capital-j = "serifed"
+capital-k = "straight-serifless"
+capital-q = "crossing-baseline"
+capital-w = "straight-serifless"
+a = "double-storey-serifless"
+b = "toothed-serifless"
+d = "toothed-serifless"
+f = "flat-hook-serifless"
+g = "single-storey-serifless"
+k = "symmetric-touching-serifless"
+m = "serifless"
+r = "hookless-serifless"
+t = "flat-hook-short-neck"
+w = "straight-serifless"
+y = "straight-serifless"
+lower-eth = "straight-bar"
+lower-lambda = "straight"
+tittle = "square"
+diacritic-dot = "square"
+punctuation-dot = "square"
+braille-dot = "round"
+asterisk = "penta-low"
+caret = "low"
+ascii-grave = "straight"
+paren = "flat-arc"
+brace = "curly-flat-boundary"
+number-sign = "slanted"
+at = "fourfold-solid-inner-tall"
+dollar = "through"
+percent = "dots"
+bar = "force-upright"
+question = "smooth"
+decorative-angle-brackets = "middle"
+lig-equal-chain = "with-notch"
+
+[buildPlans.iosevka-neon-mono.variants.italic]
+i = "serifed"
+l = "serifed"
+
+[buildPlans.iosevka-neon-mono.widths.normal]
+shape = 600
+menu  = 5
+css   = "normal"
+
+[buildPlans.iosevka-neon-term]
+family = "Iosevka Neon Term"
+spacing = "term"
+serifs = "sans"
+noCvSS = true
+export-glyph-names = false
+
+[buildPlans.iosevka-neon-term.variants]
+inherits = "buildPlans.iosevka-neon-mono"
