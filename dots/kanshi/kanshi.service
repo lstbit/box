@@ -1,0 +1,10 @@
+[Unit]
+Description=Monitor Hotplug Daemon
+Documentation=man::kanshi(1) man::kanshi(5)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kanshi -c %h/.config/kanshi/config
+
+[Install]
+WantedBy=default.target

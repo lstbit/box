@@ -1,0 +1,19 @@
+output "LG Electronics LG ULTRAGEAR+ 404NTQDC7212" {
+    mode 3440x1440@120.042
+    scale 1
+    alias $HOME
+}
+
+output "California Institute of Technology 0x1319 Unknown" {
+   scale 2
+   alias $INTERNAL
+}
+
+profile home_dock {
+   output $HOME enable
+   output $INTERNAL disable
+}
+
+profile laptop {
+   output $INTERNAL enable
+}
