@@ -106,7 +106,7 @@
   (setq inhibit-splash-screen t)
 
   ;; disable warning buffer pop us when using native-comp
-  (setq native-comp-async-report-warnings-erros nil)
+  (setq native-comp-async-report-warnings-errors nil)
 
   ;; Enable Which Key
   (which-key-mode)
