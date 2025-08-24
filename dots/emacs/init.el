@@ -117,8 +117,11 @@
     (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
   ;; FONT CONFIG
-  (set-face-attribute 'default nil :font "Iosevka Neon Mono" :height 150)
-  (set-face-attribute 'variable-pitch nil :font "Iosevka Neon" :height 140)
+
+  ;; If we're using 2x scaling for 2K monitors we should use a half point size
+  ;; as Iosevka Neon prefers a odd point size, ex 12.5 x 2 = 25pt (effective size)
+  (set-face-attribute 'default nil :font "Iosevka Neon Mono" :height 125)
+  (set-face-attribute 'variable-pitch nil :font "Iosevka Neon" :height 125)
 
   ;; BACKUP CONFIG
   (setq backup-by-copying t
