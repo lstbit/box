@@ -1,0 +1,112 @@
+[buildPlans.cutebrain-mono]
+family = "cutebrain mono"
+spacing = "normal"
+serifs = "sans"
+noCvSs = false
+exportGlyphNames = false
+
+[buildPlans.cutebrain-mono.variants.design]
+one = "base"
+two = "straight-neck-serifless"
+three = "flat-top-serifless"
+four = "semi-open-serifless"
+seven = "straight-serifless"
+eight = "crossing"
+nine = "straight-bar"
+zero = "tall-slashed"
+capital-b = "standard-serifless"
+capital-i = "serifed"
+capital-j = "serifed"
+capital-k = "straight-serifless"
+capital-q = "crossing-baseline"
+capital-w = "straight-serifless"
+a = "double-storey-serifless"
+b = "toothed-serifless"
+d = "toothed-serifless"
+f = "flat-hook-serifless"
+g = "single-storey-serifless"
+k = "symmetric-touching-serifless"
+m = "serifless"
+n = "earless-corner-straight-serifless"
+r = "hookless-serifless"
+t = "flat-hook-short-neck"
+w = "straight-serifless"
+y = "straight-serifless"
+lower-eth = "straight-bar"
+lower-lambda = "straight"
+tittle = "round"
+diacritic-dot = "round"
+punctuation-dot = "round"
+braille-dot = "round"
+asterisk = "penta-low"
+caret = "low"
+ascii-grave = "straight"
+paren = "flat-arc"
+brace = "curly-flat-boundary"
+number-sign = "slanted"
+at = "fourfold-solid-inner-tall"
+dollar = "through"
+percent = "dots"
+bar = "force-upright"
+question = "smooth"
+decorative-angle-brackets = "middle"
+lig-equal-chain = "with-notch"
+
+  [buildPlans.cutebrain-mono.ligations]
+  inherits = "dlig"
+
+[buildPlans.cutebrain-mono.weights.Regular]
+shape = 500
+menu = 500
+css = 500
+
+[buildPlans.cutebrain-mono.weights.Bold]
+shape = 700
+menu = 700
+css = 700
+
+[buildPlans.cutebrain-mono.weights.ExtraBold]
+shape = 800
+menu = 800
+css = 800
+
+[buildPlans.cutebrain-mono.weights.Heavy]
+shape = 900
+menu = 900
+css = 900
+
+[buildPlans.cutebrain-mono.widths.Normal]
+shape = 600
+menu = 5
+css = "normal"
+
+[buildPlans.cutebrain-mono.slopes.Upright]
+angle = 0
+shape = "upright"
+menu = "upright"
+css = "normal"
+
+[buildPlans.cutebrain-mono.slopes.Italic]
+angle = 9.4
+shape = "italic"
+menu = "italic"
+css = "italic"
+
+[buildPlans.cutebrain-term]
+family = "cutebrain term"
+spacing = "fontconfig-mono"
+serifs = "sans"
+noCvSs = false
+export-glyph-names = false
+
+[buildPlans.cutebrain-term.variants]
+inherits = "buildPlans.cutebrain-mono"
+
+[buildPlans.cutebrain-term.weights]
+inherits = "buildPlans.cutebrain-mono"
+
+[buildPlans.cutebrain-term.widths]
+inherits = "buildPlans.cutebrain-mono"
+
+[buildPlans.cutebrain-term.slopes]
+inherits = "buildPlans.cutebrain-mono"
