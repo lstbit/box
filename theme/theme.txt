@@ -1,0 +1,56 @@
+LB Theme (Working Title)
+========================
+
+A base 16 Theme inspired by retro 
+technologies.
+
+-----------------------------------
+
+BACKGROUND:
+BG1.........LIGHTEST........#232625
+BG2.........DARKEST.........#0E100F
+
+
+FOREGROUND:
+FG1.........LIGHTEST........#CAEBDD
+FG2.........DARKEST.........#91A99F
+
+HIGHLIGHT:
+HL1.........LIGHTEST........#B4E0CE
+HL2.........DARKEST.........#87A89D
+
+PRIMARY ACCENT:
+PA1.........LIGHTEST........#94FFD4
+PA2.........DARKEST.........#64B396
+
+SECONDARY ACCENT:
+SA1.........LIGHTEST........#BEFF94
+SA2.........DARKEST.........#8EC46E
+
+GREY:
+GR1.........LIGHTEST........#778C84
+GR2.........DARKEST.........#6B7571
+
+WHITE:
+WH1.........LIGHTEST........#E6FFF7
+WH2.........DARKEST.........#DCE6DC
+
+-----------------------------------
+
+HIGH CONTRAST BASE 16 CONFIG
+
+BACKGROUND......................BG2
+FOREGROUND CURSOR...............FG1
+BLUE CYAN GREEN.................PA1
+RED PURPLE YELLOW...............SA1
+BLACK...........................GR1
+WHITE...........................WH1
+
+LOW CONTRAST BASE 16 CONFIG
+
+BACKGROUND......................BG1
+FOREGROUND CURSOR...............FG2
+BLUE CYAN GREEN.................PA2
+RED PURPLE YELLOW...............SA2
+BLACK...........................GR2
+WHITE...........................WH2
