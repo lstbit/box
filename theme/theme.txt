@@ -41,6 +41,7 @@ HIGH CONTRAST BASE 16 CONFIG
 
 BACKGROUND......................BG2
 FOREGROUND CURSOR...............FG1
+SELECTION.......................HL1
 BLUE CYAN GREEN.................PA1
 RED PURPLE YELLOW...............SA1
 BLACK...........................GR1
@@ -50,6 +51,7 @@ LOW CONTRAST BASE 16 CONFIG
 
 BACKGROUND......................BG1
 FOREGROUND CURSOR...............FG2
+SELECTION.......................HG2
 BLUE CYAN GREEN.................PA2
 RED PURPLE YELLOW...............SA2
 BLACK...........................GR2
