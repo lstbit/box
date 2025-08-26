@@ -354,6 +354,7 @@ If prefix arg is set, it will unset the env var."
   (add-hook 'typescript-ts-mode-hook 'eglot-ensure)
   (add-hook 'terraform-mode-hook 'eglot-ensure)
   (add-hook 'bash-ts-mode-hook 'eglot-ensure)
+  (add-hook 'qml-ts-mode-hook 'eglot-ensure)
   ;; Helper function to install all configured grammars.
   (defun bit/install-treesit-grammars ()
     "Install all grammars configured via treesit-language-source-alist.
@@ -371,7 +372,9 @@ This needs to be invoked after the alist is updated"
 
   ;; Tell eglot to not mess with indent-tabs-mode
   :config
-  (append eglot-stay-out-of indent-tabs-mode))
+  (append eglot-stay-out-of indent-tabs-mode)
+  (add-to-list 'eglot-server-programs
+	       '(qml-ts-mode "qmlls6")))
 
 ;; Rust Setup
 (use-package rustic)
@@ -449,6 +452,12 @@ This needs to be invoked after the alist is updated"
   (slime-setup '(slime-quicklisp
 		 slime-asdf
 		 slime-mrepl)))
+
+;; QML Setup for QT QML
+(use-package qml-ts-mode
+  :ensure (:host github
+		 :repo "xhcoding/qml-ts-mode"
+		 :files ("*.el")))
 
 ;; nix setup
 (use-package nix-mode
