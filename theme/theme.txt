@@ -19,13 +19,29 @@ HIGHLIGHT:
 HL1.........LIGHTEST........#B4E0CE
 HL2.........DARKEST.........#87A89D
 
-PRIMARY ACCENT:
-PA1.........LIGHTEST........#94FFD4
-PA2.........DARKEST.........#64B396
+BLUE:
+BL1.........LIGHTEST........#4FFFFF
+BL2.........DARKEST.........#32B3B3
 
-SECONDARY ACCENT:
+CYAN:
+CY1.........LIGHTEST........#94FFD4
+CY2.........DARKEST.........#64B396
+
+GREEN:
 SA1.........LIGHTEST........#BEFF94
-SA2.........DARKEST.........#8EC46E
+SA2.........DARKEST.........#81B36D
+
+RED:
+RD1.........LIGHTEST........#FFA74F
+RD2.........DARKEST.........#B37732
+
+PURPLE:
+PR1.........LIGHTEST........#FF4FDE
+PR2.........DARKEST.........#B3329F
+
+YELLOW:
+YL1.........LIGHTEST........#FFFF94
+YL2.........DARKEST.........#B3B36D
 
 GREY:
 GR1.........LIGHTEST........#778C84
