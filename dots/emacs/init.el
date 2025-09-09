@@ -237,6 +237,7 @@ If prefix arg is set, it will unset the env var."
     "r c" 'shell-command
     "r a" 'async-shell-command
     "r r" 'shell-command-on-region
+    "r g" 'rgrep
 
     ;; Code Commands
     "c" '(:ignore t :which-key "code")
