@@ -120,6 +120,33 @@
   (set-face-attribute 'default nil :font "Penrose Mono" :height 140 :weight 'regular)
   (set-face-attribute 'variable-pitch nil :font "Penrose Sans" :height 140 :weight 'regular)
 
+  ;;; font toggle function
+  (defvar bit/is-docked nil
+    "Non-nil if we are using laptop only")
+
+  (defvar bit/font-size-docked 140
+    "The Font Size to be used when docked")
+
+  (defvar bit/font-size-undocked 100
+    "The Font Size to be used when undocked")
+
+  (defun bit/toggle-font-size ()
+    "Toggle between two hard coded font sizes"
+    (let ((font-size (if bit/is-docked
+			 bit/font-size-docked
+		       bit/font-size-undocked)))
+      (progn
+	(set-face-attribute 'default nil :font "Penrose Mono" :height font-size :weight 'regular)
+	(set-face-attribute 'variable-pitch nil :font "Penrose Sans" :height font-size :weight 'regular))
+      ))
+
+  (defun bit/toggle-docked ()
+    "Toggle docked mode"
+    (interactive)
+    (setq bit/is-docked (not bit/is-docked))
+    (message "DOCKED STATE: %s" (if bit/is-docked "ON" "OFF"))
+    (bit/toggle-font-size))
+
   ;; BACKUP CONFIG
   (setq backup-by-copying t
 	version-control t
@@ -249,9 +276,11 @@ If prefix arg is set, it will unset the env var."
     "h a" 'apropos-command
     "h f" 'describe-function
     "h k" 'describe-key
-    "h v" 'describe-variable))
+    "h v" 'describe-variable
 
-
+    ;; Toggles (Flags)
+    "t" '(:ignore t :which-key "toggles")
+    "t d" '("toggle docked mode" . bit/toggle-docked)))
 
 
 ;; Workaround for Transient dependency issue with magit v4 (09082024)

@@ -1,6 +1,8 @@
 font-family = "PenroseTerm Nerd Font Mono"
 font-feature = "-calt, -liga, -dlig"
-font-size = 10.5
-theme = "Builtin Solarized Dark"
+font-size = 10
+theme = "lostbit-high-contrast"
 
 window-decoration = "none"
+window-padding-x = "25"
+window-padding-y = "25"
