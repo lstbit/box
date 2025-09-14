@@ -1,6 +1,6 @@
-font-family = "PenroseTerm Nerd Font Mono"
+font-family = "Penrose Mono"
 font-feature = "-calt, -liga, -dlig"
-font-size = 10
+font-size = 14
 theme = "lostbit-high-contrast"
 
 window-decoration = "none"
