@@ -68,7 +68,7 @@
   :after evil
   :demand t
   :config
-  (evil-collection-init '(dired magit corfu info help ediff grep compile man)))
+  (evil-collection-init '(dired magit corfu info help ediff grep compile man elfeed)))
 
 ;; BASE CONFIGURATION
 (use-package emacs
@@ -270,6 +270,10 @@ If prefix arg is set, it will unset the env var."
     "c" '(:ignore t :which-key "code")
     "c c" 'compile
     "c r" 'recompile
+
+    ;; Open Apps?
+    "o" '(:ignore t :which-key "open")
+    "o r" 'elfeed
 
     ;; Help
     "h"   '(:ignote t :which-key "help")
@@ -492,6 +496,21 @@ This needs to be invoked after the alist is updated"
 ;; nix setup
 (use-package nix-mode
   :mode "\\.nix\\'")
+
+;; elfeed configuration
+(use-package elfeed
+  :config
+  (setq elfeed-feeds
+	'(("https://xeiaso.net/blog.rss" tech)
+	  ("https://trickster.dev/post/index.xml" tech)
+	  ("https://drewdevault.com/blog/index.xml" tech)
+	  ("https://protesilaos.com/commentary.xml" life philosophy)
+	  ("https://protesilaos.com/interpretations.xml" life philosophy)
+	  ("https://protesilaos.com/poems.xml" life poetry)
+	  ("https://www.seangoedecke.com/rss.xml" tech)
+	  ("https://xn--gckvb8fzb.com/index.xml" tech)
+	  ("https://ntietz.com/atom.xml" tech)
+	  ("https://www.scattered-thoughts.net/atom.xml" tech))))
 
 ;; theme installation
 (use-package solarized-theme
