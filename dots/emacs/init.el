@@ -117,8 +117,8 @@
     (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
   ;; FONT CONFIG
-  (set-face-attribute 'default nil :font "Penrose Mono" :height 140 :weight 'regular)
-  (set-face-attribute 'variable-pitch nil :font "Penrose Sans" :height 140 :weight 'regular)
+  (set-face-attribute 'default nil :font "Penrose Mono" :height 110 :weight 'regular)
+  (set-face-attribute 'variable-pitch nil :font "Geist" :height 110 :weight 'regular)
 
   ;;; font toggle function
   (defvar bit/is-docked nil

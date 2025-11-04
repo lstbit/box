@@ -1,7 +1,7 @@
 font-family = "Penrose Mono"
 font-feature = "-calt, -liga, -dlig"
-font-size = 14
-theme = "lostbit-high-contrast"
+theme = "Builtin Solarized Dark"
+font-size = 11
 
 window-decoration = "none"
 window-padding-x = "25"
