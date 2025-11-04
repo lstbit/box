@@ -4,11 +4,22 @@ export EDITOR=vim
 
 alias rlsh="source $HOME/.bashrc"
 
+# gentoo aliases
+alias eix="eix --color never"
+
 # AWS bits
 sap() {
     local aws_prof=$(grep profile ~/.aws/config | cut -d ' ' -f 2 | cut -d ']' -f 1 | fzf)
     if [[ -n "$aws_prof" ]]; then
 	export AWS_PROFILE=$aws_prof
+    fi
+}
+
+# interactive ssh prompt
+jump() {
+    local server=$(grep -i "host " ~/.ssh/config | cut -d ' ' -f 2 | fzf)
+    if [[ -n "$server" ]]; then
+	ssh $server
     fi
 }
 
