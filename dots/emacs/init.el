@@ -116,6 +116,9 @@
     (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
     (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
+  ;; disable decorations
+  (set-frame-parameter nil 'undecorated t)
+
   ;; FONT CONFIG
   (set-face-attribute 'default nil :font "Penrose Mono" :height 110 :weight 'regular)
   (set-face-attribute 'variable-pitch nil :font "Geist" :height 110 :weight 'regular)
@@ -286,7 +289,6 @@ If prefix arg is set, it will unset the env var."
     "t" '(:ignore t :which-key "toggles")
     "t d" '("toggle docked mode" . bit/toggle-docked)))
 
-
 ;; Workaround for Transient dependency issue with magit v4 (09082024)
 (use-package transient
   :ensure (:host github :repo "magit/transient"))
@@ -297,7 +299,6 @@ If prefix arg is set, it will unset the env var."
   (bit-leader
     "g" '(:ignore t :which-key "git")
     "g g" '("Magit Status" . magit-status-here)))
-
 
 ;; PROG MODE CONFIGURATION
 (use-package emacs
