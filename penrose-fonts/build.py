@@ -17,7 +17,6 @@ build_dir = box_dir + '/penrose-fonts/build'
 
 fonts = [
     'penrose-mono',
-    'penrose-sans',
     'penrose-term',
 ]
 
@@ -33,6 +32,9 @@ families = [
     'ExtraBoldItalic',
     'HeavyItalic',
 ]
+
+def setup_build_env():
+    pass
 
 def copy_iosevka_build_plans():
     build_file = box_dir + '/penrose-fonts/private-build-plans.toml'
@@ -68,6 +70,11 @@ def copy_iosevka_fonts():
 
 def build_fonts():
     print('copying build files to iosevka dir')
+    try:
+        copy_iosevka_build_plans()
+    except Exception:
+        print('FAILED TO COPY BUILD PLANS')
+
     print('attempting builds')
 
     os.chdir(iosevka_dir)
@@ -85,8 +92,6 @@ def build_fonts():
     copy_iosevka_fonts()
 
 def patch_fonts():
-    full_font_list = [f'{font}-{family}' for font, family in product(fonts, families)]
-    
     nerd_font_output_dir = build_dir + '/nerd-fonts'
     os.mkdir(nerd_font_output_dir)
 
