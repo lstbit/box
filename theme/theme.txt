@@ -1,8 +1,11 @@
 LB Theme (Working Title)
 ========================
 
-A base 16 Theme inspired by retro 
-technologies.
+Theme used for Terminal and Editors
+
+
+Lowlight should be used as the background for
+a colors lightest variant.
 
 -----------------------------------
 
@@ -22,26 +25,32 @@ HL2.........DARKEST.........#87A89D
 BLUE:
 BL1.........LIGHTEST........#4FFFFF
 BL2.........DARKEST.........#32B3B3
+BL3.........LOWLIGHT........#2A6F84
 
 CYAN:
 CY1.........LIGHTEST........#94FFD4
 CY2.........DARKEST.........#64B396
+CY3.........LOWLIGHT........#427067
 
 GREEN:
-SA1.........LIGHTEST........#BEFF94
-SA2.........DARKEST.........#81B36D
+GR1.........LIGHTEST........#BEFF94
+GR2.........DARKEST.........#81B36D
+GR3.........LOWLIGHT........#38755A
 
-RED:
-RD1.........LIGHTEST........#FFA74F
-RD2.........DARKEST.........#B37732
+ORANGE:
+OR1.........LIGHTEST........#FFA74F
+OR2.........DARKEST.........#B37732
+OR3.........LOWLIGHT........#753B00
 
-PURPLE:
-PR1.........LIGHTEST........#FF4FDE
-PR2.........DARKEST.........#B3329F
+FUCHSIA:
+FC1.........LIGHTEST........#FF4FDE
+FC2.........DARKEST.........#B3329F
+FC3.........LOWLIGHT........#591643
 
 YELLOW:
 YL1.........LIGHTEST........#FFFF94
 YL2.........DARKEST.........#B3B36D
+YL4.........LOWLIGHT........#73733A
 
 GREY:
 GR1.........LIGHTEST........#778C84
@@ -50,25 +59,3 @@ GR2.........DARKEST.........#6B7571
 WHITE:
 WH1.........LIGHTEST........#E6FFF7
 WH2.........DARKEST.........#DCE6DC
-
------------------------------------
-
-HIGH CONTRAST BASE 16 CONFIG
-
-BACKGROUND......................BG2
-FOREGROUND CURSOR...............FG1
-SELECTION.......................HL1
-BLUE CYAN GREEN.................PA1
-RED PURPLE YELLOW...............SA1
-BLACK...........................GR1
-WHITE...........................WH1
-
-LOW CONTRAST BASE 16 CONFIG
-
-BACKGROUND......................BG1
-FOREGROUND CURSOR...............FG2
-SELECTION.......................HG2
-BLUE CYAN GREEN.................PA2
-RED PURPLE YELLOW...............SA2
-BLACK...........................GR2
-WHITE...........................WH2
