@@ -273,6 +273,7 @@ If prefix arg is set, it will unset the env var."
     "c" '(:ignore t :which-key "code")
     "c c" 'compile
     "c r" 'recompile
+    "c a" 'eglot-code-actions
 
     ;; Open Apps?
     "o" '(:ignore t :which-key "open")
