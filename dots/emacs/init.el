@@ -512,6 +512,7 @@ This needs to be invoked after the alist is updated"
 	  ("https://www.seangoedecke.com/rss.xml" tech)
 	  ("https://xn--gckvb8fzb.com/index.xml" tech)
 	  ("https://ntietz.com/atom.xml" tech)
+	  ("https://jyn.dev/atom.xml" tech)
 	  ("https://www.scattered-thoughts.net/atom.xml" tech))))
 
 ;; theme installation
