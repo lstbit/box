@@ -120,8 +120,7 @@
   (set-frame-parameter nil 'undecorated t)
 
   ;; FONT CONFIG
-  (set-face-attribute 'default nil :font "Penrose Mono" :height 110 :weight 'regular)
-  (set-face-attribute 'variable-pitch nil :font "Geist" :height 110 :weight 'regular)
+  (set-face-attribute 'default nil :font "Berkeley Mono" :height 110 :weight 'regular)
 
   ;;; font toggle function
   (defvar bit/is-docked nil
