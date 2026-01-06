@@ -1,2 +1,5 @@
 # ignore all result directories from nix
 result
+
+# python
+__pycache__
