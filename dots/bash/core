@@ -7,6 +7,11 @@ alias rlsh="source $HOME/.bashrc"
 # gentoo aliases
 alias eix="eix --color never"
 
+PATH=$PATH:~/.local/bin
+
+# Misc aliases
+alias cdd="cd $HOME/code"
+
 # AWS bits
 sap() {
     local aws_prof=$(grep profile ~/.aws/config | cut -d ' ' -f 2 | cut -d ']' -f 1 | fzf)
@@ -15,6 +20,11 @@ sap() {
     fi
 }
 
+# AWS aliases
+alias sapu="unset AWS_PROFILE"
+alias saru="unset AWS_REGION"
+alias sapu="unset AWS_PROFILE"
+
 # interactive ssh prompt
 jump() {
     local server=$(grep -i "host " ~/.ssh/config | cut -d ' ' -f 2 | fzf)
@@ -22,5 +32,3 @@ jump() {
 	ssh $server
     fi
 }
-
-alias sapu="unset AWS_PROFILE"
