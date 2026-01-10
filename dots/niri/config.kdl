@@ -189,7 +189,8 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    // Z for Zoomed Out
+    Mod+Z repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
 
@@ -270,7 +271,7 @@ binds {
     Mod+W { toggle-column-tabbed-display; }
 
     // Not sure if print is bound on the keeb
-    Print { screenshot; }
+    Mod+S { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
