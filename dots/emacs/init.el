@@ -117,10 +117,11 @@
     (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
   ;; disable decorations
-  (set-frame-parameter nil 'undecorated t)
+  (setq default-frame-alist '((undecorated . t)))
 
   ;; FONT CONFIG
   (set-face-attribute 'default nil :font "Berkeley Mono" :height 110 :weight 'regular)
+  (set-face-attribute 'variable-pitch nil :font "Berkeley Mono" :height 110 :weight 'regular)
 
   ;;; font toggle function
   (defvar bit/is-docked nil
@@ -443,12 +444,17 @@ This needs to be invoked after the alist is updated"
   :after evil
   :init
   (global-corfu-mode)
+  (corfu-popup-mode) ;; used for documentaiton popup when auto-completing
+
   :custom
   (corfu-cycle t)
+
   :config
   (general-def 'insert corfu-map
+    ;; <UP> and <DOWN> work in the popup buffer when it's selected too.
     "C-n" 'corfu-next
     "C-p" 'corfu-previous
+    "C-h" 'corfu-popupinfo-mode
     "C-<return>" 'corfu-complete))
 
 ;; Formatter Configuration
