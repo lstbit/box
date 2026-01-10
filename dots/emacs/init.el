@@ -444,7 +444,7 @@ This needs to be invoked after the alist is updated"
   :after evil
   :init
   (global-corfu-mode)
-  (corfu-popup-mode) ;; used for documentaiton popup when auto-completing
+  (corfu-popupinfo-mode) ;; used for documentaiton popup when auto-completing
 
   :custom
   (corfu-cycle t)
