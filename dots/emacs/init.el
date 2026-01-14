@@ -423,7 +423,12 @@ This needs to be invoked after the alist is updated"
 	       '(qml-ts-mode "qmlls6")))
 
 ;; Rust Setup
-(use-package rustic)
+(use-package rustic
+  :ensure (:host github
+		 :repo "emacs-rustic/rustic"
+		 :files ("*.el"))
+  :config
+  (setq rustic-lsp-client 'eglot))
 
 (use-package envrc
   :hook (after-init . envrc-global-mode))
