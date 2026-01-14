@@ -532,3 +532,7 @@ This needs to be invoked after the alist is updated"
 ;; verb for making http requests from org
 (use-package verb
   :ensure t)
+
+(use-package kdl-mode
+  :ensure t
+  :mode "\\.kdl\\'")
