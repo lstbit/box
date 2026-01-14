@@ -12,6 +12,7 @@ PATH=$PATH:~/.cargo/bin
 
 # Misc aliases
 alias cdd="cd $HOME/code"
+alias grep="rg"
 
 # AWS bits
 sap() {
