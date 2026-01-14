@@ -8,6 +8,7 @@ alias rlsh="source $HOME/.bashrc"
 alias eix="eix --color never"
 
 PATH=$PATH:~/.local/bin
+PATH=$PATH:~/.cargo/bin
 
 # Misc aliases
 alias cdd="cd $HOME/code"
