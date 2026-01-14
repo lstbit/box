@@ -305,6 +305,7 @@ If prefix arg is set, it will unset the env var."
 
 ;; GIT CONFIGURATION
 (use-package magit
+  :ensure (:host github :repo "magit/magit" :tag "v4.3.8")
   :init
   (bit-leader
     "g" '(:ignore t :which-key "git")
