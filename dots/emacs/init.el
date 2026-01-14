@@ -68,7 +68,7 @@
   :after evil
   :demand t
   :config
-  (evil-collection-init '(dired magit corfu info help ediff grep compile man elfeed)))
+  (evil-collection-init '(dired magit corfu info help ediff grep compile man elfeed finder)))
 
 ;; BASE CONFIGURATION
 (use-package emacs
@@ -105,6 +105,12 @@
   (menu-bar-mode -1)
   (setq inhibit-splash-screen t)
 
+  ;; enable displaying the time in the mode line
+  (display-time-mode 1)
+
+  ;; Append to undecorated to default-frame-alist
+  (add-to-list 'default-frame-alist '(undecorated . t) t)
+
   ;; disable warning buffer pop us when using native-comp
   (setq native-comp-async-report-warnings-errors nil)
 
@@ -116,8 +122,6 @@
     (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
     (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
-  ;; disable decorations
-  (setq default-frame-alist '((undecorated . t)))
 
   ;; FONT CONFIG
   (set-face-attribute 'default nil :font "Berkeley Mono" :height 110 :weight 'regular)
@@ -130,7 +134,7 @@
   (defvar bit/font-size-docked 140
     "The Font Size to be used when docked")
 
-  (defvar bit/font-size-undocked 100
+  (defvar bit/font-size-undocked 110
     "The Font Size to be used when undocked")
 
   (defun bit/toggle-font-size ()
@@ -139,9 +143,9 @@
 			 bit/font-size-docked
 		       bit/font-size-undocked)))
       (progn
-	(set-face-attribute 'default nil :font "Penrose Mono" :height font-size :weight 'regular)
-	(set-face-attribute 'variable-pitch nil :font "Penrose Sans" :height font-size :weight 'regular))
-      ))
+	(set-face-attribute 'default nil :height font-size)
+	(set-face-attribute 'variable-pitch nil :height font-size)
+        (set-face-attribute 'org-table nil :height font-size))))
 
   (defun bit/toggle-docked ()
     "Toggle docked mode"
@@ -170,6 +174,11 @@
 
   ;; Configure project root markers for box repo
   (setq project-vc-extra-root-markers '(".project")))
+
+(use-package org
+  :ensure nil
+  :config
+  (set-face-attribute 'org-table nil :font "Berkeley Mono" :height 110))
 
 ;; used for fixing path when loading under mac os
 (use-package exec-path-from-shell
@@ -415,12 +424,6 @@ This needs to be invoked after the alist is updated"
 ;; Rust Setup
 (use-package rustic)
 
-(use-package org
-  :ensure nil
-  :config
-  ;; Fix org table in var-pitch mode
-  (set-face-attribute 'org-table nil :font "Iosevka Neon Mono" :height 140))
-
 (use-package envrc
   :hook (after-init . envrc-global-mode))
 
@@ -525,4 +528,7 @@ This needs to be invoked after the alist is updated"
   :demand t
   :config
   (load-theme 'solarized-light))
-(put 'upcase-region 'disabled nil)
+
+;; verb for making http requests from org
+(use-package verb
+  :ensure t)
