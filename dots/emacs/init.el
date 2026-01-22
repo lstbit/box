@@ -55,7 +55,7 @@
   :demand t
   :init
   (setq evil-want-keybinding nil
-	evil-want-C-u-scroll t)
+		evil-want-C-u-scroll t)
   :hook
   (elpaca-after-init . evil-mode)
   ;; I'm running into a bug with evil and the below is a workaround
@@ -68,7 +68,7 @@
   :after evil
   :demand t
   :config
-  (evil-collection-init '(dired magit corfu info help ediff grep compile man elfeed finder)))
+  (evil-collection-init '(dired magit corfu info help ediff grep compile man elfeed finder eldoc)))
 
 ;; BASE CONFIGURATION
 (use-package emacs
@@ -82,8 +82,8 @@
 
   ;; backup file and autosave configuration
   (setq bit/user-data-dir (expand-file-name "~/.local/share/emacs/")
-	bit/backup-dir (expand-file-name "~/.local/share/emacs/backups/")
-	bit/autosave-dir (expand-file-name "~/.local/share/emacs/autosaves/"))
+		bit/backup-dir (expand-file-name "~/.local/share/emacs/backups/")
+		bit/autosave-dir (expand-file-name "~/.local/share/emacs/autosaves/"))
 
   (if (not (file-directory-p bit/user-data-dir))
       (make-directory bit/user-data-dir))
@@ -96,7 +96,7 @@
 
   ;; hardcoded paths as relative paths are required
   (setq auto-save-file-name-transforms '((".*" "~/.local/share/emacs/autosaves/" t))
-	backup-directory-alist '(("." . "~/.local/share/emacs/backups/")))
+		backup-directory-alist '(("." . "~/.local/share/emacs/backups/")))
   :config
   ;; clean up ui elements and turn off bell
   (setq ring-bell-function #'ignore)
@@ -123,6 +123,9 @@
     (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
 
+  ;; TAB CONFIG
+  (setq-default tab-width 4)
+
   ;; FONT CONFIG
   (set-face-attribute 'default nil :font "Berkeley Mono" :height 110 :weight 'regular)
   (set-face-attribute 'variable-pitch nil :font "Berkeley Mono" :height 110 :weight 'regular)
@@ -140,11 +143,11 @@
   (defun bit/toggle-font-size ()
     "Toggle between two hard coded font sizes"
     (let ((font-size (if bit/is-docked
-			 bit/font-size-docked
-		       bit/font-size-undocked)))
+						 bit/font-size-docked
+					   bit/font-size-undocked)))
       (progn
-	(set-face-attribute 'default nil :height font-size)
-	(set-face-attribute 'variable-pitch nil :height font-size)
+		(set-face-attribute 'default nil :height font-size)
+		(set-face-attribute 'variable-pitch nil :height font-size)
         (set-face-attribute 'org-table nil :height font-size))))
 
   (defun bit/toggle-docked ()
@@ -156,17 +159,17 @@
 
   ;; BACKUP CONFIG
   (setq backup-by-copying t
-	version-control t
-	delete-old-versions t
-	kept-new-versions 6
-	kept-old-versions 2)
+		version-control t
+		delete-old-versions t
+		kept-new-versions 6
+		kept-old-versions 2)
 
   ;; TEXT MODE CONFIGURATION
   (setq sentence-end-double-space nil
-	require-final-newline t
-	show-trailing-whitespace t
-	;; better scrolling configuration
-	pixel-scroll-precision-mode t)
+		require-final-newline t
+		show-trailing-whitespace t
+		;; better scrolling configuration
+		pixel-scroll-precision-mode t)
 
   ;; Compile mode config
   (with-eval-after-load 'compile
@@ -197,13 +200,13 @@
   (interactive)
   (let ((env-var (getenv "AWS_PROFILE")))
     (if env-var
-	(message (format "AWS_PROFILE: %s" env-var))
+		(message (format "AWS_PROFILE: %s" env-var))
       (message "AWS_PROFILE has not been set"))))
 
 (defun bit/get-known-aws-profiles ()
   "Look in ~/.aws/config for configured profile names."
   (let ((input
-	 (shell-command-to-string "cat ~/.aws/config | grep -i profile | cut -d ' ' -f 2 | tr -d ']'")))
+		 (shell-command-to-string "cat ~/.aws/config | grep -i profile | cut -d ' ' -f 2 | tr -d ']'")))
     (split-string input "\n" t)))
 
 (defun bit/set-aws-profile ()
@@ -215,7 +218,7 @@ If prefix arg is set, it will unset the env var."
       ;; since the prefix is set on the caller, the callee
       ;; will have it set too.
       (progn (setenv "AWS_PROFILE")
-	     (message "AWS_PROFILE has been unset"))
+			 (message "AWS_PROFILE has been unset"))
     (setenv "AWS_PROFILE" (completing-read "AWS_PROFILE: " (bit/get-known-aws-profiles)))))
 
 ;; KEY BIND CONFIGURATION
@@ -259,6 +262,7 @@ If prefix arg is set, it will unset the env var."
     "b b" 'switch-to-buffer
     "b B" 'switch-to-buffer-other-window
     "b f" 'apheleia-format-buffer
+	"b l" 'list-buffers
 
     ;; File Management
     "f"   '(:ignore t :which-key "file")
@@ -282,7 +286,9 @@ If prefix arg is set, it will unset the env var."
     "c" '(:ignore t :which-key "code")
     "c c" 'compile
     "c r" 'recompile
+	"c f" 'apheleia-format-buffer
     "c a" 'eglot-code-actions
+	"c d" 'eldoc
 
     ;; Open Apps?
     "o" '(:ignore t :which-key "open")
@@ -315,48 +321,48 @@ If prefix arg is set, it will unset the env var."
 (use-package emacs
   :ensure nil
   :hook ((prog-mode . display-line-numbers-mode)
-	 (conf-mode . display-line-numbers-mode)
-	 (prog-mode . flymake-mode)
-	 (conf-mode . flymake-mode))
+		 (conf-mode . display-line-numbers-mode)
+		 (prog-mode . flymake-mode)
+		 (conf-mode . flymake-mode))
 
   ;; configure treesitter modes
   :mode (("\\.ts\\'" . typescript-ts-mode)
-	 ("\\.cjs\\'" . typescript-ts-mode)
-	 ("\\.json\\'" . json-ts-mode)
-	 ("\\.rs\\'" . rust-ts-mode)
-	 ("\\.exs\\'" . elixir-ts-mode)
-	 ("\\.elixir\\'" . elixir-ts-mode)
-	 ("\\.ex\\'" . elixir-ts-mode)
-	 ("mix\\.lock" . elixir-ts-mode))
+		 ("\\.cjs\\'" . typescript-ts-mode)
+		 ("\\.json\\'" . json-ts-mode)
+		 ("\\.rs\\'" . rust-ts-mode)
+		 ("\\.exs\\'" . elixir-ts-mode)
+		 ("\\.elixir\\'" . elixir-ts-mode)
+		 ("\\.ex\\'" . elixir-ts-mode)
+		 ("mix\\.lock" . elixir-ts-mode))
 
   :config
   (setq display-line-numbers-type 'relative)
 
   ;; treesitter grammar installation
   (setq treesit-language-source-alist
-	'((python . ("https://github.com/tree-sitter/tree-sitter-python.git"))
-	  (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript.git" "master" "typescript/src"))
-	  (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript.git" "master" "tsx/src"))
-	  (hcl . ("https://github.com/tree-sitter-grammars/tree-sitter-hcl.git"))
-	  (go . ("https://github.com/tree-sitter/tree-sitter-go.git"))
-	  (janet-simple . ("https://github.com/sogaiu/tree-sitter-janet-simple.git"))
-	  (bash . ("https://github.com/tree-sitter/tree-sitter-bash.git"))
-	  (json . ("https://github.com/tree-sitter/tree-sitter-json.git"))
-	  (rust . ("https://github.com/tree-sitter/tree-sitter-rust.git"))
-	  (elixir . ("https://github.com/elixir-lang/tree-sitter-elixir"))
-	  (heex . ("https://github.com/phoenixframework/tree-sitter-heex")))))
+		'((python . ("https://github.com/tree-sitter/tree-sitter-python.git"))
+		  (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript.git" "master" "typescript/src"))
+		  (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript.git" "master" "tsx/src"))
+		  (hcl . ("https://github.com/tree-sitter-grammars/tree-sitter-hcl.git"))
+		  (go . ("https://github.com/tree-sitter/tree-sitter-go.git"))
+		  (janet-simple . ("https://github.com/sogaiu/tree-sitter-janet-simple.git"))
+		  (bash . ("https://github.com/tree-sitter/tree-sitter-bash.git"))
+		  (json . ("https://github.com/tree-sitter/tree-sitter-json.git"))
+		  (rust . ("https://github.com/tree-sitter/tree-sitter-rust.git"))
+		  (elixir . ("https://github.com/elixir-lang/tree-sitter-elixir"))
+		  (heex . ("https://github.com/phoenixframework/tree-sitter-heex")))))
 
 ;; Janet configuration
 (use-package janet-ts-mode
   :ensure (:host github
-		 :repo "sogaiu/janet-ts-mode"
-		 :files ("*.el")))
+				 :repo "sogaiu/janet-ts-mode"
+				 :files ("*.el")))
 
 ;; -- REPL Configuration
 (use-package ajrepl
   :ensure (:host github
-		 :repo "sogaiu/ajrepl"
-		 :files ("*.el" "ajrepl"))
+				 :repo "sogaiu/ajrepl"
+				 :files ("*.el" "ajrepl"))
   :config
   (add-hook 'janet-ts-mode-hook #'ajrepl-interaction-mode))
 
@@ -408,25 +414,24 @@ This needs to be invoked after the alist is updated"
     (interactive)
     (dolist (pair treesit-language-source-alist)
       (let ((key (car pair))
-	    (val (cdr pair)))
-	(treesit-install-language-grammar key))))
+			(val (cdr pair)))
+		(treesit-install-language-grammar key))))
 
   ;; configure remappable treesitter modes
   (add-to-list 'major-mode-remap-alist
-	       '(python-mode . python-ts-mode)
-	       '(shell-script-mode . bash-ts-mode))
+			   '(python-mode . python-ts-mode)
+			   '(shell-script-mode . bash-ts-mode))
 
   ;; Tell eglot to not mess with indent-tabs-mode
   :config
   (append eglot-stay-out-of indent-tabs-mode)
-  (add-to-list 'eglot-server-programs
-	       '(qml-ts-mode "qmlls6")))
+  (add-to-list 'eglot-server-programs '(qml-ts-mode "qmlls6")))
 
 ;; Rust Setup
 (use-package rustic
   :ensure (:host github
-		 :repo "emacs-rustic/rustic"
-		 :files ("*.el"))
+				 :repo "emacs-rustic/rustic"
+				 :files ("*.el"))
   :config
   (setq rustic-lsp-client 'eglot))
 
@@ -435,7 +440,7 @@ This needs to be invoked after the alist is updated"
 
 (use-package yaml-mode
   :mode (("\\.yaml\\'" . yaml-mode)
-	 ("\\.yml\\'" . yaml-mode)))
+		 ("\\.yml\\'" . yaml-mode)))
 
 ;; auto-complete config
 (use-package vertico
@@ -473,9 +478,9 @@ This needs to be invoked after the alist is updated"
   :config
   ;; typescript config
   (setf (alist-get 'prettier-typescript apheleia-formatters)
-	'("apheleia-npx" "prettier" "--stdin-filepath" filepath))
+		'("apheleia-npx" "prettier" "--stdin-filepath" filepath))
   (setf (alist-get 'prettier-json apheleia-formatters)
-	'("apheleia-npx" "prettier" "--stdin-filepath" filepath)))
+		'("apheleia-npx" "prettier" "--stdin-filepath" filepath)))
 
 ;; direnv
 (use-package direnv
@@ -500,14 +505,14 @@ This needs to be invoked after the alist is updated"
   :config
   (setq inferior-lisp-program "sbcl")
   (slime-setup '(slime-quicklisp
-		 slime-asdf
-		 slime-mrepl)))
+				 slime-asdf
+				 slime-mrepl)))
 
 ;; QML Setup for QT QML
 (use-package qml-ts-mode
   :ensure (:host github
-		 :repo "xhcoding/qml-ts-mode"
-		 :files ("*.el")))
+				 :repo "xhcoding/qml-ts-mode"
+				 :files ("*.el")))
 
 ;; nix setup
 (use-package nix-mode
@@ -517,17 +522,17 @@ This needs to be invoked after the alist is updated"
 (use-package elfeed
   :config
   (setq elfeed-feeds
-	'(("https://xeiaso.net/blog.rss" tech)
-	  ("https://trickster.dev/post/index.xml" tech)
-	  ("https://drewdevault.com/blog/index.xml" tech)
-	  ("https://protesilaos.com/commentary.xml" life philosophy)
-	  ("https://protesilaos.com/interpretations.xml" life philosophy)
-	  ("https://protesilaos.com/poems.xml" life poetry)
-	  ("https://www.seangoedecke.com/rss.xml" tech)
-	  ("https://xn--gckvb8fzb.com/index.xml" tech)
-	  ("https://ntietz.com/atom.xml" tech)
-	  ("https://jyn.dev/atom.xml" tech)
-	  ("https://www.scattered-thoughts.net/atom.xml" tech))))
+		'(("https://xeiaso.net/blog.rss" tech)
+		  ("https://trickster.dev/post/index.xml" tech)
+		  ("https://drewdevault.com/blog/index.xml" tech)
+		  ("https://protesilaos.com/commentary.xml" life philosophy)
+		  ("https://protesilaos.com/interpretations.xml" life philosophy)
+		  ("https://protesilaos.com/poems.xml" life poetry)
+		  ("https://www.seangoedecke.com/rss.xml" tech)
+		  ("https://xn--gckvb8fzb.com/index.xml" tech)
+		  ("https://ntietz.com/atom.xml" tech)
+		  ("https://jyn.dev/atom.xml" tech)
+		  ("https://www.scattered-thoughts.net/atom.xml" tech))))
 
 ;; theme installation
 (use-package solarized-theme
