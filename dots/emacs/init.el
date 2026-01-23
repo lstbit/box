@@ -243,6 +243,11 @@ If prefix arg is set, it will unset the env var."
     "SPC" '("M-x" . execute-extended-command)
     "u"   '("C-u" . universal-argument)
     "'"   '("Open Terminal Here" . vterm)
+    "+"   '("Global Text Scale +" . global-text-scale-adjust)
+	;; '=' is bound so we dont have to hold shift to adjust
+    "="   '("Global Text Scale +" . global-text-scale-adjust)
+    "-"   '("Global Text Scale -" . global-text-scale-adjust)
+	"0"   '("Global Text Scale Reset" . global-text-scale-adjust)
 
     ;; Window Management
     "w"   '(:ignore t :which-key "window")
@@ -262,7 +267,7 @@ If prefix arg is set, it will unset the env var."
     "b b" 'switch-to-buffer
     "b B" 'switch-to-buffer-other-window
     "b f" 'apheleia-format-buffer
-	"b l" 'list-buffers
+    "b l" 'list-buffers
 
     ;; File Management
     "f"   '(:ignore t :which-key "file")
@@ -286,9 +291,9 @@ If prefix arg is set, it will unset the env var."
     "c" '(:ignore t :which-key "code")
     "c c" 'compile
     "c r" 'recompile
-	"c f" 'apheleia-format-buffer
+    "c f" 'apheleia-format-buffer
     "c a" 'eglot-code-actions
-	"c d" 'eldoc
+    "c d" 'eldoc
 
     ;; Open Apps?
     "o" '(:ignore t :which-key "open")
